@@ -42,6 +42,7 @@ class User
     /**
      * Set the user name of User
      * @param string|null $username
+     * @return User
      */
     public function setUsername(?string $username): User
     {
@@ -61,6 +62,7 @@ class User
     /**
      * Set the password of User
      * @param string|null $password
+     * @return User
      */
     public function setPassword(?string $password): User
     {

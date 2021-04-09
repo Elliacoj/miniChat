@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+htlm {
+    font-size: 62.5%;
+}
+
+body {
+    width: 100%;
+    background-color: #5a5a5a;
+}
+
+#container {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+#divChat {
+    width: 65%;
+    height: 100vh;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#divUser {
+    width: 35%;
+}
+
+#chat {
+    width: 80%;
+    height: 80%;
+    background-color: white;
+    overflow: auto;
+    border-radius: 20px;
+    box-shadow: 3px -3px 3px darkgrey;
+}

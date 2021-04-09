@@ -47,6 +47,7 @@ class Message
     /**
      * Set the content of Message
      * @param string|null $content
+     * @return Message
      */
     public function setContent(?string $content): Message
     {
@@ -66,6 +67,7 @@ class Message
     /**
      * Set the date time of Message
      * @param string|null $datetime
+     * @return Message
      */
     public function setDatetime(?string $datetime): Message
     {
@@ -85,6 +87,7 @@ class Message
     /**
      * Set the user_fk of Message
      * @param \App\Entity\User|null $user_fk
+     * @return Message
      */
     public function setUserFk(?User $user_fk): Message
     {

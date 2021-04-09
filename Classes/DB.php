@@ -8,7 +8,7 @@ use PDOException;
 class DB
 {
     private string $host = "localhost";
-    private string $db = "miniChat";
+    private string $db = "minichat";
     private string $user = "root";
     private string $password = "";
 
