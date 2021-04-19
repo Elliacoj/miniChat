@@ -12,7 +12,7 @@ if (isset($_GET['error'], $_POST['username'], $_POST['password']) && $_GET['erro
     $user = new UserManager();
     $user = $user->searchUser($username);
 
-    if($user !== null) {
+    if($user->getId() !== null) {
         if(password_verify($password, $user->getPassword())) {
             $_SESSION['id'] = $user->getId();
             $_SESSION['username'] = $user->getUsername();

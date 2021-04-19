@@ -13,24 +13,37 @@
     <title>Mini Chat</title>
 </head>
 <body>
+<?php
+if(isset($_GET['error'])) {
+    if($_GET['error'] == "0") {
+        echo "<div class='notError'>Compte bien créé!</div>";
+    }
+    elseif($_GET['error'] == "1") {
+        echo "<div class='error'>Ce nom d'utilisateur est déjà pris!</div>";
+    }
+    elseif($_GET['error'] == "2") {
+        echo "<div class='error'>Mot de passe incorrect!</div>";
+    }
+    elseif($_GET['error'] == "3") {
+        echo "<div class='error'>Ce nom d'utilisateur n'existe pas!</div>";
+    }
+}
+?>
     <div id="container">
         <div id="divChat">
             <div id="chat">
                 <div id="chatMessage">
-                    <form action="#">
-                        <input name="message" id="message">
-                        <input type="submit" id="buttonChat">
+                    <form id="formChat">
+                        <input name="message" id="message" required>
+                        <button type="submit" id="buttonChat">Envoyer</button>
                     </form>
                 </div>
-
-                
-                
             </div>
         </div>
 
         <?php
             if(isset($_SESSION['id'])) {
-                echo '<div id="divUserLogout"><div id="name">' . $_SESSION["username"] . '</div><a href="logout.php"><button>Déconnexion</button></a></div>';
+                echo '<div id="divUserLogout"><div id="name">' . $_SESSION["username"] . '</div><a href="logout.php"><button class="button">Déconnexion</button></a></div>';
             }
             else {
                 ?>
@@ -70,5 +83,6 @@
         ?>
 
     </div>
+    <script src="Assets/script.js"></script>
 </body>
 </html>

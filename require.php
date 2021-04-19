@@ -1,8 +1,9 @@
 <?php
 session_start();
 
-require_once "./Classes/DB.php";
-require_once "./Entity/User.php";
-require_once "./Entity/Message.php";
-require_once "./Repository/MessageManager.php";
-require_once "./Repository/UserManager.php";
+$root = $_SERVER['DOCUMENT_ROOT'];
+require_once $root . "/Classes/DB.php";
+require_once $root . "/Entity/User.php";
+require_once $root . "/Entity/Message.php";
+require_once $root . "/Repository/MessageManager.php";
+require_once $root . "/Repository/UserManager.php";
