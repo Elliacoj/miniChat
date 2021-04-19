@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Classes\DB;
+use App\Entity\Message;
 
 class MessageManager
 {
@@ -28,7 +29,9 @@ class MessageManager
         $messages = [];
         if($stmt->execute()) {
             foreach ($stmt->fetchAll() as $message) {
-                 $messages[] = $messageManager = new MessageManager($message['id'], $message['content'], $message['datetime'], $message['user_fk']);
+                $user = new UserManager();
+                $user = $user->searchUserId($message['user_fk']);
+                $messages[] = $messageManager = new Message($message['id'], $message['content'], $message['datetime'], $user);
             }
         }
         return $messages;

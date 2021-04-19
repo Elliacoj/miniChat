@@ -21,13 +21,32 @@ class UserManager
     }
 
     /**
-     * Search a User in the table user
+     * Search a User in the table user by the username
      * @param $username
      * @return object
      */
     public function searchUser($username): object
     {
         $stmt = DB::getInstance()->prepare("SELECT * FROM user WHERE username = '$username' LIMIT 1");
+
+        if($stmt->execute()){
+            $userData = $stmt->fetch();
+            $user = new User($userData['id'], $userData['username'], $userData['password']);
+        }
+        else {
+            $user = null;
+        }
+        return $user;
+    }
+
+    /**
+     * Search a User in the table user by the id
+     * @param $id
+     * @return object
+     */
+    public function searchUserId($id): User
+    {
+        $stmt = DB::getInstance()->prepare("SELECT * FROM user WHERE id = '$id' LIMIT 1");
 
         if($stmt->execute()){
             $userData = $stmt->fetch();

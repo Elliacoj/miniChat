@@ -1,5 +1,4 @@
-let divChat = document.getElementById("chat");
-let buttonChat = document.querySelector("#buttonChat");
+const buttonChat = document.querySelector("#buttonChat");
 
 buttonChat.addEventListener('click', function (e) {
     e.preventDefault();
@@ -18,25 +17,18 @@ buttonChat.addEventListener('click', function (e) {
     document.getElementById("message").value = "";
 })
 
-
-function listMessages(students, table) {
-    for(let student of students) {
-        table.innerHTML += `
-                <tr>
-                    <td>${student.id}</td>
-                    <td>${student.firstname}</td>
-                    <td>${student.lastname}</td>
-                    <td>${student.school.name}</td>
-                    <td>
-                        <a class="get-student" href="/api/students?id=${student.id}">
-                            <i class="fas fa-eye"></i>
-                        </a>
-                    </td>
-                </tr>
-            `;
-    }
-}
-
 setInterval(function () {
+    let xhr = new XMLHttpRequest();
+    xhr.onload = function() {
+        const divChat = document.getElementById("chatContent");
+        const messages = JSON.parse(xhr.responseText);
+        divChat.innerHTML = '';
+        for(let message of messages) {
+            divChat.innerHTML += "<p>" + message['datetime'] + "/ " + message['user'] + ": " + message['content'] + "</p><br>";
 
+       }
+    };
+
+    xhr.open('GET', '/api/message/index.php');
+    xhr.send();
 }, 1000);

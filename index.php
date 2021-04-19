@@ -38,6 +38,7 @@ if(isset($_GET['error'])) {
                         <button type="submit" id="buttonChat">Envoyer</button>
                     </form>
                 </div>
+                <div id="chatContent"></div>
             </div>
         </div>
 
@@ -83,6 +84,7 @@ if(isset($_GET['error'])) {
         ?>
 
     </div>
+
     <script src="Assets/script.js"></script>
 </body>
 </html>

@@ -39,6 +39,10 @@ body {
     flex-direction: column-reverse;
 }
 
+#chatContent {
+    width: 100%;
+}
+
 #chatMessage {
     width: 100%;
     height: 50px;

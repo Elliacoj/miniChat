@@ -77,11 +77,11 @@ class Message
 
     /**
      * Return the user_fk of Message
-     * @return \App\Entity\User|null
+     * @return string
      */
-    public function getUserFk(): ?User
+    public function getUserFk(): string
     {
-        return $this->user_fk;
+        return $this->user_fk->getUsername();
     }
 
     /**
