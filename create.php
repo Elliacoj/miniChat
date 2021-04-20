@@ -1,7 +1,6 @@
 <?php
 
 use App\Classes\DB;
-use App\Repository\MessageManager;
 use App\Repository\UserManager;
 
 require_once "require.php";

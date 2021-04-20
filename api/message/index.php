@@ -9,7 +9,6 @@ header('Content-Type: application/json');
 
 $requestType = $_SERVER['REQUEST_METHOD'];
 $manager = new MessageManager();
-$user_fk = $_SESSION['id'];
 
 switch($requestType) {
     case 'GET':
@@ -18,6 +17,7 @@ switch($requestType) {
     case 'POST':
         $data = json_decode(file_get_contents('php://input'));
         if(isset($data->content, $_SESSION['id'])) {
+            $user_fk = $_SESSION['id'];
             $result = $manager->creatMessage(addslashes(DB::sanitizeString($data->content)), $user_fk);
         }
         break;
@@ -28,6 +28,7 @@ switch($requestType) {
 
 
 if(isset($_GET['type'], $_POST['content'], $_SESSION['id']) && $_GET['type'] == 'message') {
+    $user_fk = $_SESSION['id'];
     $content = DB::sanitizeString($_POST['content']);
     $messageManager = new MessageManager();
     $state = $messageManager->creatMessage($content, $user_fk);
@@ -46,8 +47,7 @@ function getMessage(MessageManager $manager): string {
     foreach($messages as $message) {
         if($date < strtotime($message->getDatetime())) {
             $response[] = [
-                'id' => $message->getId(),
-                'content' => $message->getContent(),
+                'content' => str_replace("\\", "", $message->getContent()),
                 'datetime' => $message->getDatetime(),
                 'user' => $message->getUserFk(),
             ];

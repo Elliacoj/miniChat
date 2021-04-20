@@ -24,7 +24,7 @@ setInterval(function () {
         const messages = JSON.parse(xhr.responseText);
         divChat.innerHTML = '';
         for(let message of messages) {
-            divChat.innerHTML += "<p>" + message['datetime'] + "/ " + message['user'] + ": " + message['content'] + "</p><br>";
+            divChat.innerHTML += "<p style='margin-left: 2%;'><span style='color: red;'>" + message['datetime'] + "/ </span><span style='color: blue;'>" + message['user'] + "</span>: " + message['content'] + "</p><br>";
 
        }
     };
