@@ -50,17 +50,17 @@ body {
 
 #message {
     height: 50px;
-    width: 90%;
+    width: 85%;
 }
 #buttonChat {
     padding: 1%;
-    border-radius: 10px;
+    width: 13.5%;
 }
 
 #divUserLog, #divUserLogout {
     width: 18%;
     background-color: white;
-    height: 300px;
+    height: 320px;
     border-radius: 20px;
     box-shadow: 3px -3px 3px darkgrey;
     margin-top: 10vh;
@@ -133,4 +133,42 @@ a {
 
 .notError {
     background-color: greenyellow;
+}
+
+@media screen and (max-width: 1400px){
+    #userLog label, #userCreate label {
+        display: block;
+    }
+
+    #userCreate, #userLog {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    #divUserLog {
+        height: 380px;
+    }
+}
+
+@media screen and (max-width: 900px){
+    #divChat {
+        width: 100%;
+    }
+    #divUserLog, #divUserLogout {
+        width: 50%;
+    }
+
+    #container {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    #message {
+        width: 80%;
+    }
+
+    #buttonChat {
+        width: 18.5%;
+    }
 }
