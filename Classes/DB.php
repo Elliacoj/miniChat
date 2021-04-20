@@ -8,9 +8,9 @@ use PDOException;
 class DB
 {
     private string $host = "localhost";
-    private string $db = "minichat";
-    private string $user = "root";
-    private string $password = "";
+    private string $db = "zmml7017_miniChat_Amaury";
+    private string $user = "zmml7017_formation";
+    private string $password = "azerty1234";
 
     private static ?PDO $dbInstance = null;
 
