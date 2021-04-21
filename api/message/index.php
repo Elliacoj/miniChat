@@ -25,15 +25,6 @@ switch($requestType) {
         break;
 }
 
-
-
-if(isset($_GET['type'], $_POST['content'], $_SESSION['id']) && $_GET['type'] == 'message') {
-    $user_fk = $_SESSION['id'];
-    $content = DB::sanitizeString($_POST['content']);
-    $messageManager = new MessageManager();
-    $state = $messageManager->creatMessage($content, $user_fk);
-}
-
 /**
  * Return the students list.
  * @param MessageManager $manager
