@@ -27,6 +27,9 @@ if(isset($_GET['error'])) {
     elseif($_GET['error'] == "3") {
         echo "<div class='error'>Ce nom d'utilisateur n'existe pas!</div>";
     }
+    elseif($_GET['error'] == "4") {
+        echo "<div class='error'>Ce mot de passe n'est pas valide!</div>";
+    }
 }
 ?>
     <div id="container">
@@ -73,7 +76,7 @@ if(isset($_GET['error'])) {
                         </div>
                         <div>
                             <label for="password">Password: </label>
-                            <input type="password" name="password" id="password" required>
+                            <input type="password" name="password" id="password" placeholder="une maj, une minuscule, un chiffre et un caractère spécifique requis" required>
                         </div>
                         <input type="submit" value="Créer" id="button">
                     </form>

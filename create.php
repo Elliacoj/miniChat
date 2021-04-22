@@ -13,9 +13,15 @@ if(isset($_GET['error'], $_POST['username'], $_POST['password']) && $_GET['error
     $user = $user->searchUser($username);
 
     if($user->getId() === null) {
-        $userManager = new UserManager();
-        $state = $userManager->creatUser($username, $password);
-        header("location: index.php?error=0");
+        if(DB::checkPassword($password)) {
+            $userManager = new UserManager();
+            $state = $userManager->creatUser($username, $password);
+            header("location: index.php?error=0");
+        }
+        else {
+            header("location: index.php?error=4");
+        }
+
     }
     else {
         header("location: index.php?error=1");

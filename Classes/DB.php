@@ -57,6 +57,25 @@ class DB
     }
 
     /**
+     * Check if password is correct
+     * @param $mdp
+     * @return bool
+     */
+    public static function checkPassword($mdp): bool {
+        $maj = preg_match('@[A-Z]@', $mdp);
+        $min = preg_match('@[a-z]@', $mdp);
+        $number = preg_match('@[0-9]@', $mdp);
+        $special = preg_match('@[^\w]@', $mdp);
+
+        if(!$maj || !$min || !$number || strlen($mdp) < 8 || !$special)
+        {
+            return false;
+        }
+        else
+            return true;
+    }
+
+    /**
      * we prevent letting other developers clone the object
      */
     public function __clone(){}
